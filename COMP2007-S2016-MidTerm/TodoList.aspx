@@ -10,7 +10,7 @@
                     <Columns>
                         <asp:BoundField DataField="todoID" HeaderText="ToDo ID" Visible="true" SortExpression="todoID" />
                         <asp:BoundField DataField="todoName" HeaderText="ToDo Name" Visible="true" SortExpression="todoName" />
-                        <asp:BoundField DataField="todoNotes" HeaderText="Notes" Visible="true" SortExpression="todoNotes"
+                        <asp:BoundField DataField="todoNotes" HeaderText="Notes" Visible="true" SortExpression="todoNotes" />
                         <asp:CommandField  HeaderText="Delete" DeleteText="<i class='fa fa-trash-o fa-lg'></i> Delete" ShowDeleteButton="true" ButtonType="Link" ControlStyle-CssClass="btn btn-danger btn-sm" />
                     </Columns>
                 </asp:GridView>
