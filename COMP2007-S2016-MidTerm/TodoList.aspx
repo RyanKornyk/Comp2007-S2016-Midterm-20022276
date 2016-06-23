@@ -8,18 +8,6 @@
 
                 <a href="TodoDetails.aspx" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>Add To Do</a>
 
-                 <div>
-                    <label for="PageSizeDropDownList">Records per Page: </label>
-                    <asp:DropDownList ID="PageSizeDropDownList" runat="server"
-                        AutoPostBack="true" CssClass="btn btn-default bt-sm dropdown-toggle"
-                        OnSelectedIndexChanged="PageSizeDropDownList_SelectedIndexChanged">
-                        <asp:ListItem Text="3" Value="3" />
-                        <asp:ListItem Text="5" Value="5" />
-                        <asp:ListItem Text="10" Value="10" />
-                        <asp:ListItem Text="All" Value="10000" />
-                    </asp:DropDownList>
-                </div>
-
                 <asp:GridView runat="server" CssClass="table table-bordered table-striped table-hover"
                     ID="TodoGridView" AutoGenerateColumns="false" DataKeyNames="todoID" PagerStyle-CssClass="pagination-ys">
                     <Columns>
