@@ -52,6 +52,7 @@ namespace COMP2007_S2016_MidTerm
                 }
             }
         }
+
         protected void CancelButton_Click(object sender, EventArgs e)
         {
             // Redirect back to To do page
