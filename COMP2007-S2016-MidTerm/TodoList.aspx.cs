@@ -44,11 +44,47 @@ namespace COMP2007_S2016_MidTerm
 
                 // query the Todo Table using EF and LINQ
                 var ToDo = (from allTodo in db.Todos
-                                select allTodo);
+                            select allTodo);
 
                 // bind the result to the GridView
                 TodoGridView.DataSource = ToDo.AsQueryable().OrderBy(SortString).ToList();
                 TodoGridView.DataBind();
+            }
+        }
+        /**
+        * <summary>
+        * This event handler deletes a todo from the db using EF
+        * </summary>
+        * 
+        * @method todosGridView_RowDeleting
+        *       @param {object} sender
+        * @param {GridViewDeleteEventArgs} e
+        * @returns {void}
+        */
+        protected void todosGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            // store which row was clicked
+            int selectedRow = e.RowIndex;
+
+            // get the selected todoID using the Grid's DataKey collection
+            int todoID = Convert.ToInt32(TodoGridView.DataKeys[selectedRow].Values["todoID"]);
+
+            // use EF to find the selected todo in the DB and remove it
+            using (TodoConnection db = new TodoConnection())
+            {
+                // create object of the todo class and store the query string inside of it
+                Todo deletedTodo = (from alltodos in db.Todos
+                                    where alltodos.TodoID == todoID
+                                    select alltodos).FirstOrDefault();
+
+                // remove the selected todo from the db
+                db.Todos.Remove(deletedTodo);
+
+                // save my changes back to the database
+                db.SaveChanges();
+
+                // refresh the grid
+                this.GetTodo();
             }
         }
     }
