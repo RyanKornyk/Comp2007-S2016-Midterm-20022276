@@ -47,7 +47,8 @@ namespace COMP2007_S2016_MidTerm
                 // map the to do properties to the form controls
                 if (updatedToDo != null)
                 {
-
+                    NameTextBox.Text = updatedToDo.TodoName;
+                    NotesTextBox.Text = updatedToDo.TodoNotes;
                 }
             }
         }
@@ -80,8 +81,8 @@ namespace COMP2007_S2016_MidTerm
                 }
 
                 // add form data to the new to do record
-              //  newTodo.TodoName = LastNameTextBox.Text;
-              //  newTodo.TodoNotes = FirstNameTextBox.Text;
+                 newTodo.TodoName = NameTextBox.Text;
+                 newTodo.TodoNotes = NotesTextBox.Text;
 
                 // use LINQ to ADO.NET to add / insert new to do into the database
 
